@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from "react";
+import React, {lazy, Suspense, useEffect, useState} from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
@@ -12,6 +12,7 @@ import Mission from "./Components/Mission";
 import Products from "./Components/Products";
 
 import { Provider } from "react-redux";
+import UserContext from "./utils/UserContext";
 // import store from "./utils/store";
 
 const Grocery = lazy(()=> import("./Components/Grocery"))
@@ -19,13 +20,21 @@ const Grocery = lazy(()=> import("./Components/Grocery"))
 // const RestaurantCard=({restName,cuisine,rating}) =>{} . -> destructure on the fly
 
 const AppLayout = () => {
+  const [loggedInUser, setLoggedInUser] = useState({loggedInUser:{}});
+  useEffect(()=>{
+    user={loggedInUser: {
+      userName: "Rasmita-dash"
+  }}
+  setLoggedInUser(user);
+  },[]);
+  
   return (
-    <>
+    <UserContext.Provider value={loggedInUser}>
       <div className="app">
         <Header />
         <Outlet />
       </div>
-    </>
+    </UserContext.Provider>
   );
 };
 
