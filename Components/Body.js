@@ -1,9 +1,10 @@
 import RestaurantCard, {WithLabel} from "./RestaurantCard";
 import Shimmer from "./Shimmer";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { GET_RES_API_URL } from "../utils/constants"
 import useGetRestaurants from "../utils/useGetRestaurants";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [restaurants, setRestaurants] = useState([]);
@@ -34,12 +35,18 @@ const Body = () => {
     //Optional chaining
     setRestaurants(resList);
     setFilteredRestaurants(resList);
-    console.log (resList);
   }
 
   // const restaurantList = useGetRestaurants();
   // console.log("restaurantList: " + restaurantList);
   // setFilteredRestaurants(restaurantList);
+
+  const userContext = useContext(UserContext);
+  function handleUserNameChange(userName){
+      userContext.setLoggedInUser({loggedInUser: {
+        userName: userName
+    }})
+  }
   
   return (<div className="body">
       <div className="flex">
@@ -65,6 +72,10 @@ const Body = () => {
           }}>
           Top Rated Restaurants
         </button>
+        UserName: 
+        <input type="text" className="m-4 p-2 border-black" 
+        value={userContext.loggedInUser.loggedInUser.userName} 
+        onChange={(e)=>handleUserNameChange(e.target.value)} />
       </div>
       {filteredRestaurants?.length === 0 ? (
     <Shimmer />

@@ -23,7 +23,7 @@ const Header=()=>{
                     <li className="px-4"><NavLink to="grocery">Grocery</NavLink></li>
                     <li className="px-4"><NavLink to="cart">Cart</NavLink></li>
                     <button className="px-4" onClick={ ()=> {setBtnName(btnName == "Login"?"Logout": "Login")}}> {btnName}</button>
-                    <li className="px-4">{userContext.loggedInUser.userName}</li>
+                    <li className="px-4">{userContext.loggedInUser.loggedInUser.userName}</li>
                 </ul>
             </div>
         </div>
