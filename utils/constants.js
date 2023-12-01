@@ -4,4 +4,6 @@ export const Image_CDN_URL="https://res.cloudinary.com/swiggy/image/upload/fl_lo
 export const GET_RES_API_URL = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING";
 // export const GET_RES_API_URL = "https://www.swiggy.com/city/Bangalore/best-restaurants";
 export const GET_RESTAURANT_MENU =
-  "https://www.swiggy.com/dapi/menu/v4/full?lat=12.9351929&lng=77.62448069999999&menuId=";
+  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.7315339&lng=83.29952779999999&restaurantId=";
+
+export const Menu_CDN_URL= "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
