@@ -3,8 +3,8 @@ import cartSlice from "./cartSlice";
 
 const store=configureStore({
     reducer:{
-        cart:cartSlice,
-        user: userSlice
+        cart: cartSlice,
+        // user: userSlice
     }
 });
 
